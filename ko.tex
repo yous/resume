@@ -1,0 +1,232 @@
+\documentclass[a4paper,10pt]{article}
+
+%A Few Useful Packages
+\usepackage{marvosym}
+\usepackage{fontspec} 					%for loading fonts
+\usepackage{xunicode,xltxtra,url,parskip} 	%other packages for formatting
+\RequirePackage{color,graphicx}
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage[big]{layaureo} 				%better formatting of the A4 page
+% an alternative to Layaureo can be ** \usepackage{fullpage} **
+\usepackage{supertabular} 				%for Grades
+\usepackage{titlesec}					%custom \section
+% Korean
+\usepackage{kotex}
+
+%Setup hyperref package, and colours for links
+\usepackage{hyperref}
+\definecolor{linkcolour}{rgb}{0,0.2,0.6}
+\hypersetup{colorlinks,breaklinks,urlcolor=linkcolour, linkcolor=linkcolour}
+
+%FONTS
+\defaultfontfeatures{Mapping=tex-text}
+%\setmainfont[SmallCapsFont = Fontin SmallCaps]{Fontin}
+%%% modified for Karol Kozioł for ShareLaTeX use
+\setmainfont[
+SmallCapsFont = Fontin-SmallCaps.otf,
+BoldFont = Fontin-Bold.otf,
+ItalicFont = Fontin-Italic.otf
+]
+{Fontin.otf}
+%%%
+
+%CV Sections inspired by:
+%http://stefano.italians.nl/archives/26
+\titleformat{\section}{\Large\scshape\raggedright}{}{0em}{}[\titlerule]
+\titlespacing{\section}{0pt}{3pt}{3pt}
+%Tweak a bit the top margin
+%\addtolength{\voffset}{-1.3cm}
+
+%Italian hyphenation for the word: ''corporations''
+\hyphenation{im-pre-se}
+
+%-------------WATERMARK TEST [**not part of a CV**]---------------
+\usepackage[absolute]{textpos}
+
+\setlength{\TPHorizModule}{30mm}
+\setlength{\TPVertModule}{\TPHorizModule}
+\textblockorigin{2mm}{0.65\paperheight}
+\setlength{\parindent}{0pt}
+
+%--------------------BEGIN DOCUMENT----------------------
+\begin{document}
+
+%WATERMARK TEST [**not part of a CV**]---------------
+%\font\wm=''Baskerville:color=787878'' at 8pt
+%\font\wmweb=''Baskerville:color=FF1493'' at 8pt
+%{\wm
+%	\begin{textblock}{1}(0,0)
+%		\rotatebox{-90}{\parbox{500mm}{
+%			Typeset by Alessandro Plasmati with \XeTeX\  \today\ for
+%			{\wmweb \href{http://www.aleplasmati.comuv.com}{aleplasmati.comuv.com}}
+%		}
+%	}
+%	\end{textblock}
+%}
+
+\pagestyle{empty} % non-numbered pages
+
+\font\fb=''[cmr10]'' %for use with \LaTeX command
+
+%--------------------TITLE-------------
+\par{\centering
+{\Huge 유차영
+}\bigskip\par}
+
+\begin{figure}[htbp]
+  \setlength{\unitlength}{1cm}
+  \begin{picture}(3, 4)(0, 0)
+    \setlength\fboxsep{0pt}
+    \put(0, 0){\framebox(3, 4)}
+  \end{picture}
+\end{figure}
+
+%--------------------SECTIONS-----------------------------------
+%Section: Personal Data
+\section{인적사항}
+
+\begin{tabular}{rl}
+  \textsc{이메일:}    & \href{mailto:yousbe@gmail.com}{yousbe@gmail.com} \\
+  \textsc{웹사이트:}  & \url{http://yous.be} \\
+  \textsc{GitHub:}    & \href{https://github.com/yous}{@yous} \\
+  \textsc{Bitbucket:} & \href{https://bitbucket.org/yous}{@yous}
+\end{tabular}
+
+%Section: Work Experience at the top
+\section{경력}
+\begin{tabular}{r|p{11cm}}
+  \textsc{2013.07-현재} & \textsc{(주)탐생}, 서울특별시 \\
+  & \emph{CTO (사내이사)} \\
+  & 안드로이드 앱 스터디 헬퍼(\url{https://play.google.com/store/apps/details?id=kr.co.tamseng.StudyHelper}) 개발 총괄. \\
+  \multicolumn{2}{c}{} \\
+
+  \textsc{2012.07.26--29} & \textsc{해킹 콘퍼런스 DEFCON 20 본선}, Las Vegas \\
+  & \emph{KAIST 정보보안 및 해킹동아리 GoN 팀원} \\
+  & CTF 참가.
+\end{tabular}
+
+%Section: Education
+\section{학력}
+\begin{tabular}{rl}
+  2011.02--현재 & KAIST, 대전광역시 \\
+  & \textsc{수리과학과} (복수전공: \textsc{전산학과}) 학사 휴학 중 \\
+  2009.03--2011.02 & 대전과학고등학교, 대전광역시 \\
+  2006.03--2009.02 & 대전관저중학교, 대전광역시 \\
+  2005.04--2006.02 & 대전원앙초등학교, 대전광역시 \\
+  2000.03--2005.04 & 동해중앙초등학교, 강원도 동해시
+\end{tabular}
+
+%Section: Scholarships and additional info
+\section{수상경력 및 장학금}
+\begin{tabular}{rl}
+  2011 봄--2012 봄 & 국가우수장학금(이공계)
+\end{tabular}
+
+%Section: Computer Skills
+\section{기술}
+\begin{description}
+  \item[Programming Languages] \hfill
+    \begin{itemize}
+      \item Ruby \url{https://www.ruby-lang.org/}
+      \item Android
+      \item JavaScript
+    \end{itemize}
+  \item[View Languages] \hfill
+    \begin{itemize}
+      \item HTML
+      \item XML
+      \item JSON \url{http://json.org}
+      \item YAML \url{http://www.yaml.org}
+      \item CSS
+      \item SASS \url{http://sass-lang.com}
+      \item ERB \url{http://ruby-doc.org/stdlib/libdoc/erb/rdoc/ERB.html}
+    \end{itemize}
+  \item[Testing] \hfill
+    \begin{itemize}
+      \item RSpec \url{http://rspec.info}
+      \item Cucumber \url{http://cukes.info}
+      \item factory\_girl \url{https://github.com/thoughtbot/factory_girl}
+    \end{itemize}
+  \item[Tools] \hfill
+    \begin{itemize}
+      \item Vim \url{http://www.vim.org}
+      \item Rake \url{https://github.com/ruby/rake}
+      \item Git \url{http://git-scm.com}
+      \item {\fb \LaTeX}\setmainfont[SmallCapsFont=Fontin-SmallCaps.otf]{Fontin.otf}
+    \end{itemize}
+  \item[Web Frameworks] \hfill
+    \begin{itemize}
+      \item Ruby on Rails \url{http://rubyonrails.org}
+      \item Sinatra \url{http://www.sinatrarb.com}
+      \item jQuery \url{http://jquery.com}
+    \end{itemize}
+  \item[Databases] \hfill
+    \begin{itemize}
+      \item MySQL \url{http://www.mysql.com}
+      \item PostgreSQL \url{http://www.postgresql.org}
+    \end{itemize}
+  \item[Operating Systems] \hfill
+    \begin{itemize}
+      \item Mac OS X
+      \item Ubuntu \url{http://www.ubuntu.com}
+    \end{itemize}
+\end{description}
+
+%Section: Open Source Projects
+\section{오픈 소스 프로젝트}
+\begin{description}
+  \item[Dwaet] \url{https://github.com/yous/dwaet} (Owner)
+    \begin{itemize}
+      \item No doet, it's dwaet.
+      \item `됬'이 포함된 트위트에 `됐'이라고 멘션하는 스크립트.
+    \end{itemize}
+  \item[jews] \url{https://github.com/disjukr/jews} (Contributor)
+    \begin{itemize}
+      \item just news.
+      \item 뉴스 본문 외의 정보를 전부 제거한 뒤 페이지를 재구성하는 스크립트.
+    \end{itemize}
+  \item[aheui.vim] \url{https://github.com/yous/aheui.vim} (Owner)
+    \begin{itemize}
+      \item Vim syntax highlighting for Aheui.
+      \item Vim 아희 문법 강조 플러그인.
+    \end{itemize}
+  \item[Raheui] \url{https://github.com/yous/raheui} (Owner)
+    \begin{itemize}
+      \item \href{http://aheui.github.io}{Aheui} interpreter in Ruby.
+      \item 루비로 작성한 \href{http://aheui.github.io}{아희} 인터프리터.
+    \end{itemize}
+  \item[Loco] \url{https://github.com/khwon/loco} (Volunteer)
+    \begin{itemize}
+      \item LOCO bbs system for KAIST.
+      \item KAIST 로코 BBS.
+      \item 리팩토링, 테스트와 문서화 작업.
+    \end{itemize}
+  \item[RuboCop] \url{https://github.com/bbatsov/rubocop} (Volunteer)
+    \begin{itemize}
+      \item A Ruby static code analyzer, based on the community Ruby style guide.
+      \item 커뮤니티 루비 스타일 가이드에 기반한 루비 정적 코드 분석기.
+    \end{itemize}
+  \item[Themespace] \url{https://github.com/themespace} (Owner)
+    \begin{itemize}
+      \item Show demo site of \href{http://octopress.org}{Octopress} themes.
+      \item \href{http://octopress.org}{Octopress} 테마 데모 사이트.
+    \end{itemize}
+  \item[whitespace] \url{https://github.com/lucalsew/whitespace} (Volunteer)
+    \begin{itemize}
+      \item Minimal white theme for \href{http://octopress.org}{Octopress}.
+      \item \href{http://octopress.org}{Octopress}를 위한 미니멀 화이트 테마.
+    \end{itemize}
+  \item[AndroidSlidingUpPanel] \url{https://github.com/umano/AndroidSlidingUpPanel} (Volunteer)
+    \begin{itemize}
+      \item Provides a simple way to add a draggable sliding up panel.
+      \item 위로 슬라이드 할 수 있는 패널 라이브러리.
+      \item 위에서 아래로 슬라이드 하는 기능 추가.
+    \end{itemize}
+\end{description}
+
+%\newpage
+%\hypertarget{gmat}{\textsc{Gmat}\setmainfont{LMRoman10 Regular}\textregistered\setmainfont[SmallCapsFont=Fontin-SmallCaps]{Fontin-Regular}}
+
+%\XeTeXpdffile ''GMAT.pdf'' page 1 scaled 800
+
+\end{document}
