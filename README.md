@@ -1,5 +1,7 @@
 # Resume
 
+[![Build Status](https://travis-ci.org/yous/resume.svg?branch=master)](https://travis-ci.org/yous/resume)
+
 [@yous](https://github.com/yous)' personal resume.
 
 - [English](http://yous.github.io/resume/en.pdf)
