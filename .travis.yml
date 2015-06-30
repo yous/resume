@@ -13,7 +13,7 @@ script:
   - git clone -b gh-pages --depth 1 --quiet https://${TOKEN}@github.com/yous/resume.git _public
   - cp *.pdf _public
 after_success:
-  - cd _site
+  - cd _public
   - git add -A
   - git commit -m "Updated to $TRAVIS_COMMIT at $(date -u +'%Y-%m-%d %H:%M:%S %Z')"
   - git push https://${TOKEN}@github.com/yous/resume.git gh-pages --quiet
