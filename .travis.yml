@@ -7,8 +7,8 @@ env:
     - secure: GzL3Tw0/NXDd0YTmFjiFbvk47JqAcNvI19GvBgBnE93VWuyS3S3Nu5djYzYogvh7YbBMleFJ6Y2/dy7aqyH1b0/6qKNArla4STf/Qqn4jV68lKUnhkOnXpQdkNj4m7SL3jzRGrxpIXuu2elw3EvyjnVQZ23hGwsx5xKMrJQTSIc=
 before_script:
   - export TZ="Asia/Seoul"
-  - git config --global user.name "ChaYoung You"
-  - git config --global user.email "yousbe@gmail.com"
+  - git config --global user.name "$(git --no-pager show --no-patch --format='%an')"
+  - git config --global user.email "$(git --no-pager show --no-patch --format='%ae')"
 script:
   - git clone -b gh-pages --depth 1 --quiet https://${TOKEN}@github.com/yous/resume.git _public
   - cp *.pdf _public
