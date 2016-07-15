@@ -38,7 +38,7 @@ $pdf_mode = 1;
 
 # The LaTeX processing program in the version that makes a pdf file instead of a
 # dvi file.
-$pdflatex = 'xelatex %O %S';
+$pdflatex = 'xelatex -interaction=nonstopmode %O %S';
 
 # The command to invoke a pdf-previewer.
 if ($^O eq 'darwin') {
