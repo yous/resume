@@ -40,4 +40,9 @@ $pdf_mode = 1;
 # dvi file.
 $pdflatex = 'xelatex %O %S';
 
+# The command to invoke a pdf-previewer.
+if ($^O eq 'darwin') {
+  $pdf_previewer = 'open -a Skim %O %S';
+}
+
 # vim: set syntax=perl:
