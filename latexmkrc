@@ -23,6 +23,12 @@
 #     characters being those appropriate to UNIX and MS-Windows, i.e., ':', '/'
 #     and '\'.
 
+# When latexmk is invoked with no files specified on the command line, then, by
+# default, it will process all files in the current directory with the extension
+# .tex. (In general, it will process the files specified in the @default_files
+# variable.)
+@default_excluded_files = ();
+
 # Default list of files to be proccessed.
 @default_files = ('en.tex', 'ko.tex');
 
@@ -42,7 +48,19 @@ $pdflatex = 'xelatex -interaction=nonstopmode %O %S';
 
 # The command to invoke a pdf-previewer.
 if ($^O eq 'darwin') {
-  $pdf_previewer = 'open -a Skim %O %S';
+    my $viewer = 'Skim';
+    if (-d "/Applications/$viewer.app") {
+        $pdf_previewer = "open -a $viewer %O %S";
+    }
+}
+elsif ($^O eq 'MSWin32') {
+    my $viewer = 'SumatraPDF.exe';
+    for my $path (split /;/, $ENV{PATH}) {
+        if (-f "$path/$viewer" && -x _) {
+            $pdf_previewer = "$viewer %O %S";
+            last;
+        }
+    }
 }
 
 # vim: set syntax=perl:
